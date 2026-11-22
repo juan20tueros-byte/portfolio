@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>John Whetzel | Web Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,700&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F5F8F9; --surface:#FFFFFF; --ink:#12232B; --muted:#4A5E67; --accent:#1D6E8A; --accent-soft:#DCEAF0; --warn:#A8452A; --warn-soft:#F4E1DA; --line:#C9D9DF;
+  --serif:'Newsreader',Georgia,'Times New Roman',serif; --sans:'IBM Plex Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+  color-scheme:light;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg:#0F1A1F;--surface:#16262D;--ink:#E8F0F3;--muted:#9FB4BD;--accent:#6CC1DA;--accent-soft:#1D3A45;--warn:#F0A58C;--warn-soft:#3A2620;--line:#2B424C;color-scheme:dark}
+}
+:root[data-theme="dark"]{--bg:#0F1A1F;--surface:#16262D;--ink:#E8F0F3;--muted:#9FB4BD;--accent:#6CC1DA;--accent-soft:#1D3A45;--warn:#F0A58C;--warn-soft:#3A2620;--line:#2B424C;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.6}
+main{max-width:860px;margin:0 auto;padding:0 24px}
+a{color:var(--accent)} a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+h1,h2,h3{font-family:var(--serif);line-height:1.15;margin:0}
+.hero{padding:88px 0 56px}
+.hero h1{font-size:clamp(44px,9vw,84px);font-weight:700;letter-spacing:-0.02em}
+.hero p{max-width:34em;font-size:20px;color:var(--muted);margin:20px 0 0}
+section{padding:40px 0;border-top:1px solid var(--line)}
+h2{font-size:30px;margin-bottom:16px}
+.about{max-width:38em}
+.skills{display:flex;flex-wrap:wrap;gap:10px;padding:0;margin:0;list-style:none}
+.skills li{background:var(--accent-soft);padding:6px 14px;border-radius:999px;font-weight:500}
+.project{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:28px;margin-bottom:24px}
+.project h3{font-size:24px;margin-bottom:8px}
+.meta{color:var(--muted);margin:0 0 14px;font-size:15px}
+.explainer{display:grid;gap:24px;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:start;margin-top:20px}
+.matrix{display:grid;grid-template-columns:auto 1fr 1fr;gap:6px;font-size:14px;color:var(--muted)}
+.matrix .lab{display:flex;align-items:center;justify-content:center;text-align:center;padding:2px}
+.cell{border:0;border-radius:10px;padding:18px 6px;font:700 30px var(--serif);color:var(--ink);cursor:pointer;background:var(--accent-soft)}
+.cell[aria-pressed="true"]{outline:3px solid var(--accent);outline-offset:2px}
+.cell.good{background:var(--accent-soft)} .cell.bad{background:var(--warn-soft)}
+.note{min-height:7em;margin:0;padding:14px 16px;border-left:4px solid var(--accent);background:var(--bg);border-radius:0 8px 8px 0}
+.stats{display:flex;gap:28px;flex-wrap:wrap;margin:14px 0 0;padding:0;list-style:none}
+.stats b{display:block;font:700 30px var(--serif);color:var(--accent)}
+.stats span{font-size:14px;color:var(--muted)}
+.links a{margin-right:20px}
+footer{padding:32px 0 56px;color:var(--muted);font-size:14px;border-top:1px solid var(--line)}
+#theme{float:right;background:none;border:1px solid var(--line);color:var(--ink);border-radius:8px;padding:6px 12px;font:inherit;font-size:14px;cursor:pointer;margin-top:24px}
+@media (max-width:640px){.explainer{grid-template-columns:1fr}.hero{padding-top:56px}}
+</style>
+</head>
+<body>
+<main>
+  <button id="theme" type="button" aria-label="Switch between light and dark mode">Light / dark</button>
+  <header class="hero">
+    <h1>John Whetzel</h1>
+    <p>Entry-level web developer in Binghamton, NY. I build clear pages with HTML, CSS, and JavaScript, and I like turning data into something people can understand.</p>
+  </header>
+
+  <section id="about">
+    <h2>About</h2>
+    <p class="about">I earned an Associate Degree in Computer Information Systems at SUNY Broome Community College and made both the Dean’s List and the President’s List. I am now working toward a Bachelor’s Degree in Data Analytics at SUNY Canton, expected May 2028. My coursework covered web development, database design, systems analysis, and networking. Before moving into tech, I worked in food service and delivery, where I learned to stay reliable and calm under time pressure.</p>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <ul class="skills">
+      <li>HTML</li><li>CSS</li><li>JavaScript</li><li>SQL</li><li>Database design</li><li>R and data analysis</li><li>Python</li><li>Excel</li>
+    </ul>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+
+    <article class="project">
+      <h3>Predicting heart failure mortality</h3>
+      <p class="meta">R, logistic regression, ggplot2 | DATA 230 course project</p>
+      <p>I trained a simple model on 299 patient records to see whether routine measurements could separate patients who survived from those who died, then checked it on patients it had never seen.</p>
+      <ul class="stats">
+        <li><b>85.6%</b><span>test accuracy (baseline 67.8%)</span></li>
+        <li><b>0.909</b><span>ROC-AUC</span></li>
+        <li><b>7</b><span>deaths the model missed</span></li>
+      </ul>
+      <div class="explainer">
+        <div>
+          <div class="matrix" role="group" aria-label="Test results: select a cell to read what it means">
+            <span></span><span class="lab">Actually survived</span><span class="lab">Actually died</span>
+            <span class="lab">Predicted died</span>
+            <button class="cell bad" type="button" data-k="fp" aria-pressed="false">6</button>
+            <button class="cell good" type="button" data-k="tp" aria-pressed="false">22</button>
+            <span class="lab">Predicted survived</span>
+            <button class="cell good" type="button" data-k="tn" aria-pressed="true">55</button>
+            <button class="cell bad" type="button" data-k="fn" aria-pressed="false">7</button>
+          </div>
+        </div>
+        <p class="note" id="note" aria-live="polite"></p>
+      </div>
+      <p class="meta" style="margin-top:16px">Limits: only 299 patients from one source, no outside validation, and follow-up time may make the results look better than real use.</p>
+      <p class="links"><a href="https://archive.ics.uci.edu/dataset/519/heart+failure+clinical+records">Dataset (UCI)</a><a id="repo" href="#" hidden>Code on GitHub</a></p>
+    </article>
+
+    <article class="project">
+      <h3>Travel page: places I want to visit</h3>
+      <p class="meta">HTML, CSS, JavaScript | SUNY Broome course project, 2025</p>
+      <p>A multi-section page with a table, images, video, and audio for Japan, Italy, and Peru. A form greets each visitor by name, chosen country, and time of day.</p>
+    </article>
+
+    <article class="project">
+      <h3>Math quiz game</h3>
+      <p class="meta">HTML, CSS, JavaScript | SUNY Broome course project, 2025</p>
+      <p>An interactive quiz for elementary students with two difficulty levels, scoring, instant feedback, and sound effects.</p>
+    </article>
+
+    <article class="project">
+      <h3>This portfolio</h3>
+      <p class="meta">HTML, CSS, JavaScript</p>
+      <p>A single-file site with a mobile-friendly layout, keyboard-accessible controls, and a light and dark mode that follows your device.</p>
+    </article>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Open to entry-level web developer roles in the Binghamton area.</p>
+    <p class="links"><a id="mail" href="#" hidden>Email</a><a id="gh" href="#" hidden>GitHub</a><a id="li" href="#" hidden>LinkedIn</a></p>
+  </section>
+  <footer>© John Whetzel</footer>
+</main>
+<script>
+// CONFIG: put your real links here. Empty ones stay hidden.
+var CONFIG = { email: "john20tueros@gmail.com", github: "", linkedin: "", repo: "" };
+
+function show(id, href){ var el=document.getElementById(id); if(href){ el.href=href; el.hidden=false; } }
+show("mail", CONFIG.email ? "mailto:"+CONFIG.email : "");
+show("gh", CONFIG.github); show("li", CONFIG.linkedin); show("repo", CONFIG.repo);
+
+// Explanations for the four cells of the confusion matrix
+var TEXT = {
+  tn: "55 patients survived and the model said they would. Correct.",
+  tp: "22 patients died and the model flagged them as high risk. Correct.",
+  fp: "6 patients survived but were flagged as high risk. A false alarm: extra attention, but no missed danger.",
+  fn: "7 patients died but the model said they would survive. These misses are why the score should support a clinician, never replace one."
+};
+var note = document.getElementById("note");
+var cells = document.querySelectorAll(".cell");
+function pick(k){
+  note.textContent = TEXT[k];
+  cells.forEach(function(c){ c.setAttribute("aria-pressed", String(c.dataset.k===k)); });
+}
+cells.forEach(function(c){ c.addEventListener("click", function(){ pick(c.dataset.k); }); });
+pick("tn");
+
+// Theme toggle (kept only in memory for this visit)
+document.getElementById("theme").addEventListener("click", function(){
+  var root=document.documentElement;
+  var dark = root.dataset.theme ? root.dataset.theme==="dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+  root.dataset.theme = dark ? "light" : "dark";
+});
+</script>
+</body>
+</html>
