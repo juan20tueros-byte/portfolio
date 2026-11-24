@@ -1,0 +1,483 @@
+
+<!--
+Name: John Whetzel
+Date: 4/25/2025
+Lab: 9 Final Project
+Description:
+A self-contained travel webpage featuring Japan, Italy, and Peru.
+The HTML, CSS, and JavaScript are all contained in this single file.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Places I Want to Visit</title>
+
+    <style>
+        /* General styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+            color: #222;
+            line-height: 1.6;
+        }
+
+        /* Greeting */
+        .greeting-section {
+            background: #172554;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        #greeting {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 30px 15px;
+            background: white;
+        }
+
+        header h1 {
+            color: #172554;
+            font-size: 2.5rem;
+        }
+
+        /* Hero section */
+        .background-image {
+            min-height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 30px;
+            color: white;
+            background:
+                linear-gradient(135deg, #1e3a8a, #0891b2, #0f766e);
+        }
+
+        .background-image h2 {
+            font-size: 2.5rem;
+        }
+
+        /* General sections */
+        section {
+            padding: 30px 20px;
+        }
+
+        .table-section,
+        .form-section,
+        .link-section {
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #172554;
+        }
+
+        /* Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            margin-top: 15px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 14px;
+            text-align: left;
+        }
+
+        th {
+            background: #172554;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background: #eef2ff;
+        }
+
+        /* Country cards */
+        .country-section {
+            max-width: 1000px;
+            margin: 25px auto;
+            background: white;
+            border-radius: 14px;
+            padding: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .country-banner {
+            height: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            font-size: 6rem;
+        }
+
+        .japan {
+            background: linear-gradient(135deg, #fce7f3, #fda4af);
+        }
+
+        .italy {
+            background: linear-gradient(135deg, #dcfce7, #bbf7d0);
+        }
+
+        .peru {
+            background: linear-gradient(135deg, #fee2e2, #fecaca);
+        }
+
+        .country-section p {
+            margin: 12px 0;
+        }
+
+        /* Media buttons */
+        .media-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .media-links a {
+            display: inline-block;
+            padding: 12px 18px;
+            border-radius: 8px;
+            background: #172554;
+            color: white;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .media-links a:hover {
+            background: #2563eb;
+            transform: translateY(-2px);
+        }
+
+        /* Form */
+        .form-section {
+            background: white;
+            border-radius: 14px;
+            margin: 30px auto;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input, select, button {
+            width: 100%;
+            padding: 12px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        button {
+            background: #172554;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background: #2563eb;
+        }
+
+        #response {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #166534;
+        }
+
+        /* External link */
+        .link-section {
+            text-align: center;
+        }
+
+        .link-section a {
+            color: #2563eb;
+        }
+
+        /* Footer */
+        footer {
+            background: #172554;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        /* Responsive design */
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            .background-image h2 {
+                font-size: 1.8rem;
+            }
+
+            .country-banner {
+                height: 160px;
+                font-size: 4rem;
+            }
+
+            table {
+                font-size: 0.9rem;
+            }
+
+            th, td {
+                padding: 9px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Greeting Section -->
+    <section class="greeting-section">
+        <p id="greeting"></p>
+        <p id="currentDate"></p>
+    </section>
+
+    <!-- Header -->
+    <header>
+        <h1>Places I Want to Visit</h1>
+    </header>
+
+    <!-- Hero Section -->
+    <div class="background-image">
+        <h2>Explore Beautiful Countries 🌎</h2>
+    </div>
+
+    <!-- Must-Visit Places Table -->
+    <section class="table-section">
+        <h2>Must-Visit Places</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Country</th>
+                    <th>Must Visit</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>Japan 🇯🇵</td>
+                    <td>Tokyo Tower, Kyoto, Mount Fuji</td>
+                </tr>
+
+                <tr>
+                    <td>Italy 🇮🇹</td>
+                    <td>Colosseum, Venice, Leaning Tower of Pisa</td>
+                </tr>
+
+                <tr>
+                    <td>Peru 🇵🇪</td>
+                    <td>Machu Picchu, Lake Titicaca, Inca Trail</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Japan -->
+    <section class="country-section">
+        <h2>Discover Japan 🇯🇵</h2>
+
+        <div class="country-banner japan">
+            🇯🇵
+        </div>
+
+        <p>
+            Japan is famous for its beautiful temples, advanced technology,
+            delicious food, and unique traditions. I would love to visit Tokyo,
+            Kyoto, and Mount Fuji.
+        </p>
+
+        <div class="media-links">
+            <a href="https://www.youtube.com/results?search_query=Japan+travel+video"
+               target="_blank" rel="noopener noreferrer">
+                ▶ Watch Japan Videos
+            </a>
+
+            <a href="https://www.youtube.com/results?search_query=Japanese+traditional+music"
+               target="_blank" rel="noopener noreferrer">
+                ♪ Listen to Japanese Music
+            </a>
+        </div>
+    </section>
+
+    <!-- Italy -->
+    <section class="country-section">
+        <h2>Discover Italy 🇮🇹</h2>
+
+        <div class="country-banner italy">
+            🇮🇹
+        </div>
+
+        <p>
+            Italy is known for its history, architecture, art, and amazing food.
+            I would love to see the Colosseum, visit Venice, and explore the
+            Leaning Tower of Pisa.
+        </p>
+
+        <div class="media-links">
+            <a href="https://www.youtube.com/results?search_query=Italy+travel+video"
+               target="_blank" rel="noopener noreferrer">
+                ▶ Watch Italy Videos
+            </a>
+
+            <a href="https://www.youtube.com/results?search_query=Italian+traditional+music"
+               target="_blank" rel="noopener noreferrer">
+                ♪ Listen to Italian Music
+            </a>
+        </div>
+    </section>
+
+    <!-- Peru -->
+    <section class="country-section">
+        <h2>Discover Peru 🇵🇪</h2>
+
+        <div class="country-banner peru">
+            🇵🇪
+        </div>
+
+        <p>
+            Peru is a country with beautiful mountains, ancient history,
+            and amazing landscapes. I would love to visit Machu Picchu,
+            Lake Titicaca, and the Inca Trail.
+        </p>
+
+        <div class="media-links">
+            <a href="https://www.youtube.com/results?search_query=Peru+travel+video"
+               target="_blank" rel="noopener noreferrer">
+                ▶ Watch Peru Videos
+            </a>
+
+            <a href="https://www.youtube.com/results?search_query=Peruvian+traditional+music"
+               target="_blank" rel="noopener noreferrer">
+                ♪ Listen to Peruvian Music
+            </a>
+        </div>
+    </section>
+
+    <!-- User Interaction Form -->
+    <section class="form-section">
+        <h2>Let Us Know Where You'd Like to Visit!</h2>
+
+        <form id="visitForm">
+
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name"
+                   placeholder="Enter your name" required>
+
+            <label for="country">Which country do you want to visit?</label>
+
+            <select id="country" name="country" required>
+                <option value="">Select a country</option>
+                <option value="Japan">Japan</option>
+                <option value="Italy">Italy</option>
+                <option value="Peru">Peru</option>
+            </select>
+
+            <button type="submit">Submit</button>
+        </form>
+
+        <p id="response"></p>
+    </section>
+
+    <!-- Travel Website -->
+    <section class="link-section">
+        <p>
+            For more travel information, visit
+            <a href="https://www.lonelyplanet.com"
+               target="_blank" rel="noopener noreferrer">
+                Lonely Planet
+            </a>.
+        </p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Travel the world and discover new adventures! 🌎</p>
+    </footer>
+
+    <script>
+        // Display greeting based on the current time
+        function displayGreeting() {
+            const now = new Date();
+            const hour = now.getHours();
+
+            let greeting;
+
+            if (hour < 12) {
+                greeting = "Good morning!";
+            } else if (hour < 18) {
+                greeting = "Good afternoon!";
+            } else {
+                greeting = "Good evening!";
+            }
+
+            document.getElementById("greeting").textContent = greeting;
+
+            // Display current date and time
+            document.getElementById("currentDate").textContent =
+                now.toLocaleString();
+        }
+
+        // Handle form submission
+        document.getElementById("visitForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const name = document.getElementById("name").value.trim();
+            const country = document.getElementById("country").value;
+
+            let joke;
+
+            if (country === "Japan") {
+                joke = "Why did the sushi chef go to school? To improve his roll!";
+            } else if (country === "Italy") {
+                joke = "Why did the Italian chef go broke? Because he pasta way!";
+            } else if (country === "Peru") {
+                joke = "Why did the tourist visit Peru? He wanted to Inca his way into history!";
+            }
+
+            document.getElementById("response").textContent =
+                "Welcome, " + name + "! You would love to visit " +
+                country + "! " + joke;
+        });
+
+        // Run greeting when the page loads
+        displayGreeting();
+    </script>
+
+</body>
+</html>
